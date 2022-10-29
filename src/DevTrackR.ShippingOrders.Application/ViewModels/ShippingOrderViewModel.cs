@@ -18,5 +18,11 @@ namespace DevTrackR.ShippingOrders.Application.ViewModels
         public DateTime PostedAt { get; private set; }
         public decimal WeightInKg { get; private set; }
         public string FullAddress { get; private set; }
+
+        public static ShippingOrderViewModel FromEntity(ShippingOrder entity)
+        {
+            var address = entity.DeliveryAddress;
+            return new ShippingOrderViewModel(entity.TrackingCode, entity.Description, entity.PostedAt, entity.WeightInKg, address.ToString());
+        }
     }
 }

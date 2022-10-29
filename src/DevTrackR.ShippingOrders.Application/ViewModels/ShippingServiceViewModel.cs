@@ -1,3 +1,5 @@
+using DevTrackR.ShippingOrders.Core.Entities;
+
 namespace DevTrackR.ShippingOrders.Application.ViewModels
 {
     public class ShippingServiceViewModel
@@ -14,5 +16,10 @@ namespace DevTrackR.ShippingOrders.Application.ViewModels
         public string Title { get; private set; }
         public decimal PricePerKg { get; private set; }
         public decimal FixedPrice { get; private set; }
+
+        public static ShippingServiceViewModel FromEntity(ShippingService entity)
+        {
+            return new ShippingServiceViewModel(entity.Id, entity.Title, entity.PricePerKg, entity.FixedPrice);
+        }
     }
 }
