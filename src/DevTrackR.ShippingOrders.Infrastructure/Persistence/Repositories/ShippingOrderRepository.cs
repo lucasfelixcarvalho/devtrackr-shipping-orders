@@ -1,11 +1,6 @@
 ﻿using DevTrackR.ShippingOrders.Core.Entities;
 using DevTrackR.ShippingOrders.Core.Repositories;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevTrackR.ShippingOrders.Infrastructure.Persistence.Repositories
 {

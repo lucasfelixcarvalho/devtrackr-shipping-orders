@@ -1,6 +1,7 @@
 ﻿using DevTrackR.ShippingOrders.Core.Repositories;
 using DevTrackR.ShippingOrders.Infrastructure.Persistence;
 using DevTrackR.ShippingOrders.Infrastructure.Persistence.Repositories;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
@@ -60,7 +61,9 @@ namespace DevTrackR.ShippingOrders.Infrastructure
 
         private static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped<IShippingOrderRepository, ShippingOrderRepository>();
+            services.AddScoped<ShippingOrderRepository>();
+            services.AddScoped<IShippingOrderRepository, CachedShippingOrderRepository>();
+
             services.AddScoped<IShippingServiceRepository, ShippingServiceRepository>();
 
             return services;
